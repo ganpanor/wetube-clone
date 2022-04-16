@@ -1,0 +1,33 @@
+include ../mixins/video
+header
+    nav
+        a(href="/") WHITUBE
+        form(method="GET", action="/search").search__form
+            input(placeholder="검색",name="keyword", type="text")
+            button
+                span.material-icons search
+        ul  
+            if loggedIn
+                li
+                    a(href="/videos/upload")
+                        span.material-icons file_upload
+                li
+                    a(href="/videos/recorder")
+                        span.material-icons videocam
+                li.user__info
+                    a(href=`/users/${loggedInUser._id}`).avatar
+                        if loggedInUser.avatarUrl.startsWith("http")
+                            img(src=loggedInUser.avatarUrl)
+                        else
+                            img(src="/" + loggedInUser.avatarUrl)
+                    ul.user__innerNav
+                        li
+                            a(href="/users/edit-profile") 계정 설정
+                        li
+                            a(href="/users/logout") 로그아웃
+            else
+                li
+                    a(href="/login") 로그인                        
+                li
+                    a(href="/join") 회원가입
+            

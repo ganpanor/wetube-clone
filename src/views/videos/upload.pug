@@ -1,0 +1,29 @@
+extends ../base.pug
+
+block content
+    //- div#previewContainer
+    //-     video#preview
+    //-     button#actionBtn Start Recording
+    if errorMessage
+        div.errorBox__wrapper
+            div.errorBox 
+                span.errorMsg=errorMessage
+                span.closeBtn ❌
+    div.form__wrapper
+        h2.title #{pageTitle}
+        form(novalidate method="POST", enctype="multipart/form-data").upload__form
+            span.upload__input
+                input(placeholder="첨부파일" required readonly).upload__name
+                label(for="video") 동영상 첨부
+                input(type="file", accept="video/*", required, id="video", name="video").upload__origin
+            span.upload__input
+                input(placeholder="첨부파일" required readonly).upload__name
+                label(for="thumb") 썸네일 첨부
+                input(type="file", accept="image/*", required, id="thumb", name="thumb").upload__origin
+            input(placeholder="제목", required, type="text", name="title", maxlength=80)
+            input(placeholder="설명", required, type="text", name="description", minlength=2)
+            input(placeholder="해시태그(,로 구분)", required, type="text", name="hashtags")
+            input(type="button", value="업로드",id="upload__btn").submitBtn
+
+block scripts
+    script(src="/static/js/upload.js")

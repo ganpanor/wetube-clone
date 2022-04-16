@@ -1,0 +1,8 @@
+.upload__input {
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  grid-gap: 10px;
+  .upload__name {
+    background-color: $back;
+  }
+}
