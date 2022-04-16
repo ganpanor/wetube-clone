@@ -12,8 +12,6 @@ module.exports = {
     commentSection: BASE_JS + "commentSection.js",
   },
   plugins: [new MiniCssExtractPlugin({ filename: "css/styles.css" })],
-  mode: "development",
-  watch: true,
   output: {
     filename: "js/[name].js",
     path: path.resolve(__dirname, "assets"),
