@@ -1,0 +1,27 @@
+.profile__data {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  h3 {
+    font-size: 28px;
+  }
+  .avatar {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  .profile__btns {
+    text-align: center;
+    margin-top: 25px;
+  }
+}
+.profile-devider {
+  border-bottom: 1px solid $border;
+  font-size: 22px;
+  padding-bottom: 10px;
+  margin-top: 25px;
+}
+.profile-video {
+  margin-top: 25px;
+}

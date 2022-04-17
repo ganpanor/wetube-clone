@@ -5,18 +5,14 @@
 // // Components
 
 @import "./components/header.scss";
-// @import "./components/footer.scss";
 @import "./components/video.scss";
 @import "./components/shared.scss";
-// @import "./components/forms.scss";
-// @import "./components/social-login.scss";
+@import "./components/forms.scss";
 @import "./components/video-player.scss";
 
 // // Screens
-// @import "./screens/search.scss";
-// @import "./screens/profile.scss";
-// @import "./screens/edit-profile.scss";
 @import "./screens/upload.scss";
+@import "./screens/profile.scss";
 
 // Defaults
 a {
@@ -51,21 +47,5 @@ label {
   }
   &:hover {
     filter: brightness(1.2);
-  }
-}
-
-.video__comments {
-  display: flex;
-  flex-direction: column;
-  max-width: 320px;
-  width: 100%;
-  margin: 0 auto;
-  margin-top: 20px;
-  .video__comment {
-    padding: 10px;
-    border-radius: 9999px;
-    background-color: white;
-    color: black;
-    margin-bottom: 10px;
   }
 }

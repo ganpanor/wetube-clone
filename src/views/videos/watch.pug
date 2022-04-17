@@ -3,7 +3,10 @@ extends ../base
 
 block content
     div#videoContainer(data-id=video._id)
-        video(src=video.fileUrl)
+        if video.fileUrl.startsWith("http")
+            video(src=video.fileUrl)
+        else
+            video(src="/"+video.fileUrl)
         div#videoControls.videoControls.showing
             span#videoControls__playBtn.material-icons play_arrow
             div#videoControls__items
@@ -23,13 +26,20 @@ block content
                 a(href=`${video.id}/delete`)
                     span.material-icons delete
            
-    div.form__wrapper
+    div.main__wrapper
         div.video__data
-            div.avatar
-                img(src=video.owner.avatarUrl)
-            h3.video__title=video.title
-            p.video__description=video.description
-            small.video__createdAt=new Date(video.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
+            div.video__info
+                h3.video__title=video.title
+                div.video__spec
+                    p.video__description=video.description
+                    small.video__createdAt=new Date(video.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})
+                div.owner__info
+                    a(href=`/users/${video.owner._id}`)
+                        if video.owner.avatarUrl.startsWith("http")
+                            img(src=video.owner.avatarUrl).avatar
+                        else
+                            img(src="/"+video.owner.avatarUrl).avatar
+                        span=video.owner.username
         
         include ./comment
 

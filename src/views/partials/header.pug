@@ -11,9 +11,11 @@ header
                 li
                     a(href="/videos/upload")
                         span.material-icons file_upload
-                li
+                            span.menu-name 동영상 업로드
                     a(href="/videos/recorder")
                         span.material-icons videocam
+                            span.menu-name 동영상 촬영
+                    
                 li.user__info
                     a(href=`/users/${loggedInUser._id}`).avatar
                         if loggedInUser.avatarUrl.startsWith("http")

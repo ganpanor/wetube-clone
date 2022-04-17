@@ -1,8 +1,12 @@
 header {
-  padding: 30px 50px;
+  height: 120px;
+  padding: 0px 50px;
   border-bottom: 1px solid $border;
+  display: flex;
+  align-items: center;
   nav {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
 
@@ -35,9 +39,36 @@ header {
       justify-content: space-between;
       align-items: center;
       li {
-        margin-left: 30px;
+        display: flex;
+        a {
+          > span {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            padding: 15px;
+            transition: 0.2s all ease-out;
+            .menu-name {
+              opacity: 0;
+              transition: 0.2s all ease-out;
+              position: absolute;
+              font-size: 14px;
+              width: 100px;
+              text-align: center;
+              top: 43px;
+              left: -50%;
+            }
+            &:hover {
+              .menu-name {
+                opacity: 1;
+              }
+            }
+          } //end span
+        }
       }
       .user__info {
+        margin-left: 20px;
         .user__innerNav {
           visibility: hidden;
           opacity: 0;
@@ -55,10 +86,13 @@ header {
           li {
             margin: 0;
             text-align: center;
-            padding: 15px 0;
             width: 110px;
             border-bottom: 1px solid $border;
-
+            background: none;
+            a {
+              padding: 15px 0;
+              width: 100%;
+            }
             &:last-child {
               border: 0;
             }

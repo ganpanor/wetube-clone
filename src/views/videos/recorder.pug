@@ -1,11 +1,12 @@
 extends ../base.pug
 
 block content
-    h2.title #{pageTitle}
-    div#videoContainer
-        video#preview
-    button#actionBtn.normalBtn Start Recording
-    a(href="./upload") 동영상 업로드
+    div.main__wrapper
+        h2.title #{pageTitle}
+        div#videoContainer
+            video#preview
+        button#actionBtn.normalBtn Start Recording
+        a(href="./upload") 동영상 업로드
     if errorMessage
         div.errorBox__wrapper
             div.errorBox 

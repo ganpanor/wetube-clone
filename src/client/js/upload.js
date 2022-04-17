@@ -1,5 +1,5 @@
 const uploadForm = document.querySelector(".upload__form");
-const uploadInput = uploadForm.querySelectorAll(".upload__input");
+const uploadInput = document.querySelectorAll(".upload__input");
 const uploadBtn = document.querySelector("#upload__btn");
 
 const handleFileName = (event) => {

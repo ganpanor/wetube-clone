@@ -1,12 +1,18 @@
 extends ../base
 
 block content
-    form(method="POST", enctype="multipart/form-data").edit-profile__form
-        label(for="avatar") Avatar
-        input(type="file", id="avatar", name="avatar", accept="image/*")
-        input(placeholder="Email", name="email", type="email", required, value=loggedInUser.email)
-        input(placeholder="Username", name="username", type="text", required, value=loggedInUser.username)
-        input(type="submit", value="Update Profile")
-        if !loggedInUser.socialOnly
-            div.edit-profile__password
-                a(href="change-password") Change Password &rarr;
+    div.main__wrapper
+        form(method="POST", enctype="multipart/form-data").edit-profile__form
+            span.upload__input
+                input(placeholder="프로필 이미지" required readonly).upload__name
+                label(for="avatar") 첨부하기
+                input(type="file", id="avatar", name="avatar", accept="image/*").upload__origin
+            input(placeholder="이메일", name="email", type="email", required, value=loggedInUser.email)
+            input(placeholder="아이디", name="username", type="text", required, value=loggedInUser.username)
+            input(type="submit", value="Update Profile")
+            if !loggedInUser.socialOnly
+                div.edit-profile__password
+                    a(href="change-password") Change Password &rarr;
+
+block scripts
+    script(src="/static/js/upload.js")

@@ -164,11 +164,11 @@ const handleKeydown = (event) => {
   }
 };
 
+video.addEventListener("loadeddata", handleLoadedMetadata);
 playBtn.addEventListener("click", togglePlay);
 volumeBtn.addEventListener("click", toggleMute);
 volumeBar.addEventListener("input", handleVolumeBar);
 timeBar.addEventListener("input", handleTimeBar);
-video.addEventListener("loadeddata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
 fullscreen.addEventListener("click", handleFullscreen);
 videoContainer.addEventListener("fullscreenchange", handleESC);
