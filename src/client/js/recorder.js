@@ -23,7 +23,7 @@ const downloadFile = (fileUrl, fileName) => {
 const handleDownload = async () => {
   actionBtn.removeEventListener("click", handleDownload); // 처음 한번 작동하고 사라지기 위함
 
-  actionBtn.innerText = "Transcoding...";
+  actionBtn.innerText = "변환중...";
 
   actionBtn.disabled = true;
 
@@ -35,13 +35,23 @@ const handleDownload = async () => {
   // writeFile: 메모리에 저장  // videoFile로부터 파일 정보를 가져옴
   ffmpeg.FS("writeFile", files.input, await fetchFile(videoFile));
   // 🔽 위에서 만든 files.input을 input으로 받음 // -r, 60 : 초당 60프레임으로 인코딩 후 output.mp4로
-  await ffmpeg.run("-i", files.input, "-r", "60", files.output);
+  await ffmpeg.run(
+    "-i",
+    files.input,
+    "-vf",
+    "format=gray",
+    "-r",
+    "60",
+    files.output
+  );
   // -ss, 00:00:00 특정 시간으로 감  // "frames:v", "1" 스크린샷 // thumbnail.jpg라는 이름의
   await ffmpeg.run(
     "-i",
     files.input,
+    "-vf",
+    "format=gray",
     "-ss",
-    "00:00:01",
+    "00:00:00",
     "-frames:v",
     "1",
     files.thumb
